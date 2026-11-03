@@ -17,33 +17,7 @@ const DEFAULT_PORTS = {
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();
 
-const DEFAULT_BEIAN_CONTENT = `© 2025 - 2026 Check Socks5 · 基于 <a href="https://github.com/cmliu/CF-Workers-CheckSocks5" target="_blank" rel="noreferrer">Cloudflare Workers 构建与运行</a> · 今日访问人数：<span id="visit-count">···</span> · 站点维护：<a href="https://t.me/CMLiussss" target="_blank" rel="noreferrer">CMLiussss</a>
-<script>
-(function () {
-	const visitCountElement = document.getElementById('visit-count');
-	if (!visitCountElement) return;
-
-	const hostname = String(window.location.hostname || window.location.host || '').trim().toLowerCase();
-	const statsId = hostname || 'unknown-host';
-
-	fetch('https://tongji.090227.xyz/?id=' + encodeURIComponent(statsId))
-		.then(function (response) {
-			if (!response.ok) throw new Error('Failed to load visit count: ' + response.status);
-			return response.json();
-		})
-		.then(function (data) {
-			if (data && data.visitCount !== undefined) {
-				visitCountElement.textContent = data.visitCount;
-				return;
-			}
-			throw new Error('visitCount is missing in response');
-		})
-		.catch(function (error) {
-			console.error('Failed to fetch visit count', error);
-			visitCountElement.textContent = '加载失败';
-		});
-})();
-</script>`;
+const DEFAULT_BEIAN_CONTENT = `© 2026 Check Socks5 · 基于 <a href="https://github.com/cmliu/CF-Workers-CheckSocks5" target="_blank" rel="noreferrer">Cloudflare Workers</a>`;
 
 export default {
 	async fetch(request, env, ctx) {
